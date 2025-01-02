@@ -1,0 +1,1 @@
+local function a(b)local c=b:getBackground()b:onClick(function(self)b:setBackground(colors.lightGray)end)b:onClickUp(function(self)b:setBackground(c)end)b:onLoseFocus(function(self)b:setBackground(c)end)end;return a
