@@ -1,6 +1,6 @@
 {
   "files": {
-    "autorun/startup.lua": "108607393a54f54bba8293ba4788f3378abe5bc51e568ce49069391c76193266",
+    "autorun/startup.lua": "0039d42f04d87062aa61ce3935813821efc4378d1df233cf6f2af8999511dee4",
     "apis/Screens/mainScreen.lua": "944766b15cb29c0927ebcf5b06d3111162b864f5f238b6206aa3fbe2f81ff988",
     "apis/Screens/DepositScreen.lua": "9e5069710ae151da34eb2e9b0528c5822596bb8e4411c7fd26f07ca9340a2878",
     "apis/Screens/errorDialog.lua": "e8aa9e69430dccdc8a9a7ca526f56a98862d24194b3231d0f384ac0f1d49c464",
@@ -17,7 +17,7 @@
     "apis/screenManager.lua": "11ca3d9f5c80b50c26036a3812b011c7b0b4fde92594aed63ff3d6ca4be81a1f",
     "apis/config.lua": "8955ed8b139d73f626836e9d635823658bec1487e247c2b20f257904686ef789",
     "apis/helpers.lua": "d18f1e417f5acc7d071c3fcf7147afbadb1e59d7c1630b003aabf5d6c26d6cc2",
-    "apis/atmAPI.lua": "70ba4d8bf58b7ecd1d7eb19c487ed122fcfa1cf180dc2f5a39e5b7f1b6c80cd2",
+    "apis/atmAPI.lua": "b0644f79801c88bd1ab54d263f074f932ab059ce2f49d6c0b23eb5fcbca5a0bf",
     "apis/itemManager.lua": "fc4f8d8597db4d267e7c565f89cb56fe9e1fb068eb684e2ee577792e97d6ef15"
   },
   "dependencies": []
