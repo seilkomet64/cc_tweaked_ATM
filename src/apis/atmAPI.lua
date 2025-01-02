@@ -7,6 +7,7 @@ local bankServer
 -- Wait for the bank server to be available
 while not bankServer do
     bankServer = rednet.lookup(protocol, "bankController")
+    print("No Bankserver found! Retrying in 1 second...")
     sleep(1)
 end
 
