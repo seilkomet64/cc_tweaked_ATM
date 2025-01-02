@@ -1,0 +1,1 @@
+require(settings.get("ghu.base").."core/apis/ghu")local a=require("basalt")require("screenManager")require("config")ChangeScreen(SCREENS.enterDiskScreen)a.onEvent(function(b)if b=="disk_eject"then ChangeScreen(SCREENS.enterDiskScreen,nil,nil)end end)a.autoUpdate()
