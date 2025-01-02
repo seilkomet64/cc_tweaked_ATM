@@ -4,7 +4,6 @@ require("screenManager")
 require("config")
 
 term.clear()
-peripheral.find("modem", rednet.open)
 ChangeScreen(SCREENS.enterDiskScreen)
 
 basalt.onEvent(function(event)

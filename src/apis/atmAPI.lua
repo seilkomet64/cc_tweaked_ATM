@@ -1,6 +1,7 @@
 local basalt = require("basalt")
 local atmAPI = {}
 
+peripheral.find("modem", rednet.open)
 local protocol = "bank"
 local bankServer
 
