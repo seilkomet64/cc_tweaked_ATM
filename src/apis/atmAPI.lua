@@ -63,7 +63,7 @@ function atmAPI.deposit(acc, digitalIDs, pin)
     return message.balance
 end
 
--- @returns {success, balance}
+-- @returns {balance, ids}
 function atmAPI.withdraw(acc, amount, pin)
     rednet.send(bankServer, {atmNumber = os.getComputerID(), type = "withdraw", acc = acc, amount = amount, pin = pin}, protocol)
     local senderID, message = rednet.receive("bank", 10)
@@ -131,6 +131,12 @@ function atmAPI.existsAccount(acc)
     else
         error("Failed to contact the server!")
     end
+end
+
+function atmAPI.confirmWithdrawal(acc)
+    -- Attempt to send a confirmation message to the bank server
+    -- If it does not reach it will not affect the user
+    rednet.send(bankServer, {atmNumber = os.getComputerID(), type = "confirmTransaction", acc = acc}, protocol)
 end
 
 return atmAPI

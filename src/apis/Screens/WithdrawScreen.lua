@@ -63,6 +63,7 @@ local function createScreen(args)
             end
         else
             itemManager.materializeItems(ids)
+            atmAPI.confirmWithdrawal(args.acc)
             acceptDialog(main, mainContent, {"Please pick up your " .. CONFIG.CURRENCYNAME .. "s", "from the Dropper!"}, args)
         end
     end
