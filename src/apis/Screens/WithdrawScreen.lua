@@ -46,7 +46,7 @@ local function createScreen(args)
     end
 
     function confirmButton()
-        local success, balance, ids = pcall(function() return atmAPI.withdraw(args.acc, finalAmount, args.pin) end)
+        local success, balance, ids, transIndex = pcall(function() return atmAPI.withdraw(args.acc, finalAmount, args.pin) end)
         finalAmount = 0
         if not success then
             -- Handle the error
@@ -63,7 +63,7 @@ local function createScreen(args)
             end
         else
             itemManager.materializeItems(ids)
-            atmAPI.confirmWithdrawal(args.acc)
+            atmAPI.confirmWithdrawal(args.acc, transIndex)
             acceptDialog(main, mainContent, {"Please pick up your " .. CONFIG.CURRENCYNAME .. "s", "from the Dropper!"}, args)
         end
     end

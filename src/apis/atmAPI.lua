@@ -84,7 +84,7 @@ function atmAPI.withdraw(acc, amount, pin)
         end
     end
 
-    return message.balance, message.ids
+    return message.balance, message.ids, message.transactionID
 end
 
 -- @returns {success, balance}
@@ -133,10 +133,10 @@ function atmAPI.existsAccount(acc)
     end
 end
 
-function atmAPI.confirmWithdrawal(acc)
+function atmAPI.confirmWithdrawal(acc, transactionID)
     -- Attempt to send a confirmation message to the bank server
     -- If it does not reach it will not affect the user
-    rednet.send(bankServer, {atmNumber = os.getComputerID(), type = "confirmTransaction", acc = acc}, protocol)
+    rednet.send(bankServer, {atmNumber = os.getComputerID(), type = "confirmTransaction", acc = acc, transactionID = transactionID}, protocol)
 end
 
 return atmAPI
