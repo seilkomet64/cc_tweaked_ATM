@@ -50,8 +50,6 @@ local function materializeItems(digitizedIds)
 
             -- Try pushing it out once
             counter = counter - digitizer.pushItems(peripheral.getName(dropper), 1)
-            if counter == 0 then break end
-
 
             -- if still there we are FULL
             if counter > 0 then
@@ -62,7 +60,7 @@ local function materializeItems(digitizedIds)
         if not canFit(item.name, item.count, CONFIG.CURRENCYSTACKSIZE) then
             error("The Dropper is full!")
         end
-        
+
         count = count + item.count
 
         digitizer.rematerialize(id)
