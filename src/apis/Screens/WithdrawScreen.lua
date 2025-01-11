@@ -71,10 +71,13 @@ local function createScreen(args)
             end
         else
             local isMaterialized, error = pcall(function() return itemManager.materializeItems(ids) end)
+
             if isMaterialized then
                 atmAPI.confirmWithdrawal(args.acc, transIndex)
                 acceptDialog(main, mainContent, {"Please pick up your " .. CONFIG.CURRENCYNAME .. "s", "from the Dropper!"}, args)
             else
+                ---@diagnostic disable-next-line: need-check-nil
+                error = error:match(":%d+: (.+)") or error  -- Clean up error message (removes file/line info)
                 errorDialog(main, mainContent, {error, "Empty it and confirm again!"})
                 failedWithdrawal = {ids, transIndex}
             end
