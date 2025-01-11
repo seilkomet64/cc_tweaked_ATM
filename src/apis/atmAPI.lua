@@ -66,7 +66,7 @@ end
 -- @returns {balance, ids}
 function atmAPI.withdraw(acc, amount, pin)
     rednet.send(bankServer, {atmNumber = os.getComputerID(), type = "withdraw", acc = acc, amount = amount, pin = pin}, protocol)
-    local senderID, message = rednet.receive("bank", 10)
+    local senderID, message = rednet.receive("bank", 20)
 
     -- Handle failure to receive a message
     if not message then

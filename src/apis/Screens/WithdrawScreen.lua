@@ -14,6 +14,7 @@ local function createScreen(args)
     local mainContent
     local inputThread
     local listenKeyInputs, confirmButton, submitFunction, updateLabel, activateKeyboardInput, deactivateKeyboardInput
+    local failedWithdrawal = nil
 
     function activateKeyboardInput()
         inputThread:start(listenKeyInputs)
@@ -46,7 +47,14 @@ local function createScreen(args)
     end
 
     function confirmButton()
-        local success, balance, ids, transIndex = pcall(function() return atmAPI.withdraw(args.acc, finalAmount, args.pin) end)
+        local success, balance, ids, transIndex
+        if not failedWithdrawal then
+            success, balance, ids, transIndex = pcall(function() return atmAPI.withdraw(args.acc, finalAmount, args.pin) end)
+        else
+            success, balance, ids, transIndex = true, "", failedWithdrawal[1], failedWithdrawal[2]
+            failedWithdrawal = nil
+        end
+
         finalAmount = 0
         if not success then
             -- Handle the error
@@ -62,9 +70,14 @@ local function createScreen(args)
                 errorDialog(main, mainContent, {"An error occurred: ", errorMessage})
             end
         else
-            itemManager.materializeItems(ids)
-            atmAPI.confirmWithdrawal(args.acc, transIndex)
-            acceptDialog(main, mainContent, {"Please pick up your " .. CONFIG.CURRENCYNAME .. "s", "from the Dropper!"}, args)
+            local isMaterialized, error = itemManager.materializeItems(ids)
+            if isMaterialized then
+                atmAPI.confirmWithdrawal(args.acc, transIndex)
+                acceptDialog(main, mainContent, {"Please pick up your " .. CONFIG.CURRENCYNAME .. "s", "from the Dropper!"}, args)
+            else
+                errorDialog(main, mainContent, {error, "Empty it and confirm again!"})
+                failedWithdrawal = {ids, transIndex}
+            end
         end
     end
 

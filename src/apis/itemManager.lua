@@ -43,9 +43,26 @@ local function materializeItems(digitizedIds)
         local success, item = pcall(function() return digitizer.getIDInfo(id).item end)
         if not success then return end
 
-        while not canFit(item.name, item.count, CONFIG.CURRENCYSTACKSIZE) do
-            os.sleep(1)
+        -- If something is stuck in the digitizer
+        local itemInDigitizer = digitizer.getItemDetail(1)
+        if itemInDigitizer then
+            local counter = itemInDigitizer.count
+
+            -- Try pushing it out once
+            counter = counter - digitizer.pushItems(peripheral.getName(dropper), 1)
+            if counter == 0 then break end
+
+
+            -- if still there we are FULL
+            if counter > 0 then
+                error("Something is stuck inside the Digitizer!")
+            end
         end
+
+        if not canFit(item.name, item.count, CONFIG.CURRENCYSTACKSIZE) then
+            error("The Dropper is full!")
+        end
+        
         count = count + item.count
 
         digitizer.rematerialize(id)
