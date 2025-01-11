@@ -70,7 +70,7 @@ local function createScreen(args)
                 errorDialog(main, mainContent, {"An error occurred: ", errorMessage})
             end
         else
-            local isMaterialized, error = itemManager.materializeItems(ids)
+            local isMaterialized, error = pcall(function() return itemManager.materializeItems(ids) end)
             if isMaterialized then
                 atmAPI.confirmWithdrawal(args.acc, transIndex)
                 acceptDialog(main, mainContent, {"Please pick up your " .. CONFIG.CURRENCYNAME .. "s", "from the Dropper!"}, args)
