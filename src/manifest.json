@@ -8,7 +8,7 @@
     "apis/Screens/TransferScreen.lua": "88b3a42bdfa5d2231d3e037661880e721b8154ae999255d34545c8d41616d130",
     "apis/Screens/accountSelectionScreen.lua": "c6d020c12bdfaabddb038f13e93ce83945f5028ddea780ad6dd5180d3baae1e1",
     "apis/Screens/WithdrawScreen.lua": "842aabe6dcacac3a6e6eb565c72bd2583f67a88aa0ef7e835f402eba4c685edf",
-    "apis/Screens/enterDiskScreen.lua": "9441086dab443bed4ce492b6692815d9fefe5493561cb37c0a05c7a323ae7e98",
+    "apis/Screens/enterDiskScreen.lua": "050bca6c77e513a803daa222b75d2e734f34383352dc40e0f5304a3d279df541",
     "apis/Screens/confirmDialog.lua": "defd0915c33da616c662609332eb3dfbacde1a28d613217fb750cc82f3af76e9",
     "apis/Screens/pinScreen.lua": "dc3454b71d09052f460129c818fa983ebb6b90acc1eeb2831816b1df90487f56",
     "apis/Screens/BalanceScreen.lua": "be3a453a044732d44ecafa7f4ba3f9c3b4729a609cc7ddd5961ee2a6518c94db",
