@@ -21,7 +21,7 @@ end
 function atmAPI.balance(acc, pin)
     rednet.send(bankServer, {atmNumber = os.getComputerID(), type = "balance", acc = acc, pin = pin}, protocol)
 
-    local senderID, message = rednet.receive("bank", 5)
+    local senderID, message = rednet.receive(protocol, 5)
 
     -- Handle failure to receive a message
     if not message then
@@ -43,7 +43,7 @@ end
 -- @returns {success, balance}
 function atmAPI.deposit(acc, digitalIDs, pin)
     rednet.send(bankServer, {atmNumber = os.getComputerID(), type = "deposit", acc = acc, ids = digitalIDs, pin = pin}, protocol)
-    local senderID, message = rednet.receive("bank", 10)
+    local senderID, message = rednet.receive(protocol, 10)
 
     -- Handle failure to receive a message
     if not message then
@@ -66,7 +66,7 @@ end
 -- @returns {balance, ids}
 function atmAPI.withdraw(acc, amount, pin)
     rednet.send(bankServer, {atmNumber = os.getComputerID(), type = "withdraw", acc = acc, amount = amount, pin = pin}, protocol)
-    local senderID, message = rednet.receive("bank", 20)
+    local senderID, message = rednet.receive(protocol, 20)
 
     -- Handle failure to receive a message
     if not message then
@@ -90,7 +90,7 @@ end
 -- @returns {success, balance}
 function atmAPI.transfer(acc, targetAcc, amount, pin)
     rednet.send(bankServer, {atmNumber = os.getComputerID(), type = "transfer", acc = acc, amount = amount, targetAcc = targetAcc, pin = pin}, protocol)
-    local senderID, message = rednet.receive("bank", 5)
+    local senderID, message = rednet.receive(protocol, 5)
 
     -- Handle failure to receive a message
     if not message then
@@ -112,7 +112,7 @@ end
 -- @return boolean
 function atmAPI.checkPin(acc, pin)
     rednet.send(bankServer, {atmNumber = os.getComputerID(), type = "checkPin", acc = acc, pin = pin}, protocol)
-    local senderID, message = rednet.receive("bank", 5)
+    local senderID, message = rednet.receive(protocol, 5)
 
     if message then
         return message.status
@@ -124,7 +124,7 @@ end
 -- @return boolean
 function atmAPI.existsAccount(acc)
     rednet.send(bankServer, {atmNumber = os.getComputerID(), type = "checkCard", acc = acc}, protocol)
-    local senderID, message = rednet.receive("bank", 5)
+    local senderID, message = rednet.receive(protocol, 5)
 
     if message then
         return message.status
