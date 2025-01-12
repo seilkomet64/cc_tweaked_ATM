@@ -7,6 +7,10 @@ local label = nil
 local function checkForDisk()
     local drive = peripheral.find("drive")
 
+    if not drive then
+        error("No Drive found!")
+    end
+
     if not drive.isDiskPresent() then
         os.pullEvent("disk")
     end
