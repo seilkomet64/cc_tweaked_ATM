@@ -5,7 +5,7 @@
     "apis/Screens/DepositScreen.lua": "9e5069710ae151da34eb2e9b0528c5822596bb8e4411c7fd26f07ca9340a2878",
     "apis/Screens/errorDialog.lua": "e8aa9e69430dccdc8a9a7ca526f56a98862d24194b3231d0f384ac0f1d49c464",
     "apis/Screens/acceptDialog.lua": "c0b5c7f89ac51c61ce9c508de18d9b6fa2d342090cdf2e7c9d6f1679869a1fb6",
-    "apis/Screens/TransferScreen.lua": "88b3a42bdfa5d2231d3e037661880e721b8154ae999255d34545c8d41616d130",
+    "apis/Screens/TransferScreen.lua": "ee9e09d2a9e6e5838e3459b3a56d1eeade6fa8aa9ddd880f9a2a996f206a14c6",
     "apis/Screens/accountSelectionScreen.lua": "c6d020c12bdfaabddb038f13e93ce83945f5028ddea780ad6dd5180d3baae1e1",
     "apis/Screens/WithdrawScreen.lua": "842aabe6dcacac3a6e6eb565c72bd2583f67a88aa0ef7e835f402eba4c685edf",
     "apis/Screens/enterDiskScreen.lua": "050bca6c77e513a803daa222b75d2e734f34383352dc40e0f5304a3d279df541",
