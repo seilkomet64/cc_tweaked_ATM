@@ -62,7 +62,7 @@ local function createScreen(args)
                 errorDialog(main, mainContent, {"An error occurred: ", errorMessage})
             end
         else
-            acceptDialog(main, mainContent, {CONFIG.COINNAME .. " have been successfully transfered to Account " .. args.targetAcc}, args)
+            acceptDialog(main, mainContent, {CONFIG.COINNAME .. " have been transfered", "to Account " .. args.targetAcc}, args)
         end
     end
 
