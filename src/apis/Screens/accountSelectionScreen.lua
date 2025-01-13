@@ -36,7 +36,7 @@ local function createScreen(args)
     end
 
     function submitFunction()
-        if account == 0 then
+        if account < 0 then
             errorDialog(main, mainContent, {"Please enter a valid account number."})
             return
         elseif args.acc == account then
